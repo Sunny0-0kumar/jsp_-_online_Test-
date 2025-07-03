@@ -1,0 +1,6 @@
+dao\RegUsersManager.class
+dto\Quest.class
+mycon\MyConnection.class
+dao\InsertQuestManager.class
+dto\RegUsers.class
+dao\LoginManager.class
