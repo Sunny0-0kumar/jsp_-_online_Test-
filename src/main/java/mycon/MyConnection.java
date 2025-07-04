@@ -11,9 +11,9 @@ public class MyConnection {
         try{
         
             Class.forName("com.mysql.cj.jdbc.Driver");
-            String url = "jdbc:mysql://yamanote.proxy.rlwy.net:23471/sunny?useSSL=false";
-            String user = "root";
-            String password = "gFBcSIcWsHIaNeUjxDNiUPOoXzrpJBOP";
+            String url = System.getenv("DB_URL");
+            String user = System.getenv("DB_USER");
+            String password = System.getenv("DB_PASSWORD");
 
             con = DriverManager.getConnection(url, user, password);
        
