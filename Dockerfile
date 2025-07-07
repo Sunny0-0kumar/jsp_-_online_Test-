@@ -7,9 +7,11 @@ COPY target/OnlineTestProject-1.0-SNAPSHOT.war /usr/local/tomcat/webapps/ROOT.wa
 # Install envsubst for variable substitution
 RUN apt-get update && apt-get install -y gettext-base
 
-# Copy the template
+# Copy the server.xml template
 COPY server.xml.template /usr/local/tomcat/conf/server.xml.template
 
-# Before starting Tomcat, replace ${PORT} with the environment variable
-CMD envsubst '$PORT' < /usr/local/tomcat/conf/server.xml.template > /usr/local/tomcat/conf/server.xml && catalina.sh run
+# Expose port 8080 for Railway to detect
+EXPOSE 8080
 
+# Replace ${PORT} in server.xml and start Tomcat
+CMD envsubst '$PORT' < /usr/local/tomcat/conf/server.xml.template > /usr/local/tomcat/conf/server.xml && catalina.sh run
