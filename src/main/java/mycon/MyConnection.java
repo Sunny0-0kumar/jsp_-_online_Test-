@@ -18,7 +18,7 @@ public class MyConnection {
             con = DriverManager.getConnection(url, user, password);
        
         } catch(Exception ex){
-            System.out.println(ex);
+           ex.printStackTrace();
         }
         return con;
     }
